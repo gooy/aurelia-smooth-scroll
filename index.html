@@ -4,10 +4,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.ico" />
     <title>Aurelia Smooth Scroll</title>
 
-    <link rel="stylesheet" type="text/css" href="/jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -19,14 +18,14 @@
       <i class="fa fa-spinner fa-spin"></i>
     </div>
 
-    <script src="/jspm_packages/system.js"></script>
-    <script src="/config.js"></script>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
     <script>
       System.config({
         paths: {
           "*": "app/*.js",
-          "github:*": "/jspm_packages/github/*.js",
-          "npm:*": "/jspm_packages/npm/*.js"
+          "github:*": "jspm_packages/github/*.js",
+          "npm:*": "jspm_packages/npm/*.js"
         }
       });
       System.import('aurelia-bootstrapper');
