@@ -32,7 +32,6 @@ System.config({
     "gooy/aurelia-animator-velocity": "github:gooy/aurelia-animator-velocity@0.0.1",
     "gooy/aurelia-markdown": "github:gooy/aurelia-markdown@0.0.1",
     "gooy/aurelia-smooth-scroll": "github:gooy/aurelia-smooth-scroll@0.0.1",
-    "jsol": "github:daepark/JSOL@master",
     "prism": "github:PrismJS/prism@master",
     "text": "github:systemjs/plugin-text@0.0.2",
     "github:aurelia/binding@0.6.1": {
