@@ -1,11 +1,11 @@
 {
   "name": "aurelia-smooth-scroll",
   "version": "0.0.1",
-  "description": "An implementation of the abstract Animator interface from templating which enables css-based animations.",
+  "description": "A custom attribute that allows in-page links to smoothly scroll to their target",
   "keywords": [
     "aurelia",
-    "animation",
-    "css",
+    "scroll",
+    "smooth",
     "plugin"
   ],
   "homepage": "http://gooy.github.io/aurelia-smooth-scroll",
