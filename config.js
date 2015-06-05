@@ -259,16 +259,16 @@ System.config({
       "github:PrismJS/prism@master/prism",
       "github:julianshapiro/velocity@1.2.2/velocity",
       "github:daepark/JSOL@master/jsol",
-      "github:gooy/aurelia-smooth-scroll@0.0.1/smooth-scroll",
       "github:showdownjs/showdown@0.5.4",
       "github:PrismJS/prism@master",
       "github:julianshapiro/velocity@1.2.2",
       "github:daepark/JSOL@master",
-      "github:gooy/aurelia-smooth-scroll@0.0.1/index",
       "github:gooy/aurelia-animator-velocity@0.0.1/animator",
-      "github:gooy/aurelia-smooth-scroll@0.0.1",
       "github:gooy/aurelia-animator-velocity@0.0.1/index",
       "github:gooy/aurelia-animator-velocity@0.0.1",
+      "github:gooy/aurelia-smooth-scroll@0.0.1/smooth-scroll",
+      "github:gooy/aurelia-smooth-scroll@0.0.1/index",
+      "github:gooy/aurelia-smooth-scroll@0.0.1",
       "github:gooy/aurelia-markdown@0.0.1/markdown",
       "github:gooy/aurelia-markdown@0.0.1/index",
       "github:gooy/aurelia-markdown@0.0.1",
@@ -409,6 +409,9 @@ System.config({
     "github:gooy/aurelia-markdown@0.0.1": {
       "prism": "github:PrismJS/prism@master",
       "showdown": "github:showdownjs/showdown@0.5.4"
+    },
+    "github:gooy/aurelia-smooth-scroll@0.0.1": {
+      "gooy/aurelia-animator-velocity": "github:gooy/aurelia-animator-velocity@0.0.1"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
