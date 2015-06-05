@@ -142,6 +142,9 @@ System.config({
       "prism": "github:PrismJS/prism@master",
       "showdown": "github:showdownjs/showdown@0.5.4"
     },
+    "github:gooy/aurelia-smooth-scroll@0.0.1": {
+      "gooy/aurelia-animator-velocity": "github:gooy/aurelia-animator-velocity@0.0.1"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

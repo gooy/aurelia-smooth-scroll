@@ -1,4 +1,5 @@
 import {bindable,noView,customAttribute} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 import {VelocityAnimator} from "gooy/aurelia-animator-velocity";
 
 @customAttribute("smooth-scroll")
@@ -15,8 +16,8 @@ export class SmoothScroll{
     easing: "ease-in"
   };
 
-  static inject = [Element,VelocityAnimator];
-  constructor(element,animator) {
+  static inject = [Element,VelocityAnimator,Router];
+  constructor(element,animator,router) {
     this.element = element;
     this.animator = animator;
 
@@ -62,10 +63,10 @@ export class SmoothScroll{
     }
 
     var t = container.scrollTop;
-    window.location.hash = hash;
+    history.pushState(null, null, '#'+hash);
     container.scrollTop = t;
 
-    return this.animator.move(target,"scroll",
+    return this.animator.animate(target,"scroll",
       Object.assign({
         duration: this.duration,
         offset:SmoothScroll.getOffset(),
