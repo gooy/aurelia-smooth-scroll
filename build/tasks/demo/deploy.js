@@ -16,5 +16,5 @@ gulp.task('demo-deploy-copy', function() {
  * Build all files for production then copy to the deploy directory
  */
 gulp.task('demo-deploy', function(done) {
-  return runSequence('demo-build-prod','demo-deploy-copy',done);
+  return runSequence('demo-build-prod','demo-deploy-copy','demo-unbundle',done);
 });
