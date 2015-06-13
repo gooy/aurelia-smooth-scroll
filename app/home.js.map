@@ -1,1 +1,0 @@
-{"version":3,"sources":["home.js"],"names":[],"mappings":";;;gBAEa,IAAI;;;;;;mCAFT,QAAQ;;;AAEH,UAAI,YAAJ,IAAI;8BAAJ,IAAI;;;sBAAJ,IAAI","file":"home.js","sourceRoot":"/source/","sourcesContent":["import {bindable} from 'aurelia-framework';\r\n\r\nexport class Home{\r\n\r\n\r\n\r\n}\r\n"]}

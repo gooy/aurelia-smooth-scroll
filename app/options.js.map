@@ -1,1 +1,0 @@
-{"version":3,"sources":["options.js"],"names":[],"mappings":";;;gBAEa,WAAW;;;;;;mCAFhB,QAAQ;;;AAEH,iBAAW,YAAX,WAAW;8BAAX,WAAW;;;6BAAX,WAAW","file":"options.js","sourceRoot":"/source/","sourcesContent":["import {bindable} from 'aurelia-framework';\r\n\r\nexport class OptionsPage{\r\n\r\n\r\n\r\n}\r\n"]}
