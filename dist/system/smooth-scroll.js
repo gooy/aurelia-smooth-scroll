@@ -91,12 +91,17 @@ System.register(['aurelia-framework', 'aurelia-router'], function (_export) {
             var container = arguments[2] === undefined ? document.body : arguments[2];
 
             var target = elementOrHash;
+            var hash = null;
 
             if (typeof elementOrHash === 'string') {
-              var hash = elementOrHash;
+              hash = elementOrHash;
               if (hash.indexOf('#') === 0) hash = hash.slice(1, hash.length);
-              target = container.querySelector('[id="' + hash + '"]');
-              if (!target) container.querySelector('[name="' + hash + '"]');
+              if (hash) {
+                target = container.querySelector('[id="' + hash + '"]');
+                if (!target) container.querySelector('[name="' + hash + '"]');
+              } else {
+                target = document.body;
+              }
             }
 
             if (history) {

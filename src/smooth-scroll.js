@@ -53,12 +53,17 @@ export class SmoothScroll{
   scrollTo(elementOrHash,options={},container=document.body){
 
     var target = elementOrHash;
+    var hash = null;
     //find target by id or name
     if(typeof elementOrHash === "string"){
-      var hash = elementOrHash;
+      hash = elementOrHash;
       if(hash.indexOf("#")===0) hash = hash.slice(1,hash.length);
-      target = container.querySelector(`[id="${hash}"]`);
-      if(!target) container.querySelector(`[name="${hash}"]`);
+      if(hash){
+        target = container.querySelector(`[id="${hash}"]`);
+        if(!target) container.querySelector(`[name="${hash}"]`);
+      }else{
+        target = document.body;
+      }
     }
 
     if(history){
