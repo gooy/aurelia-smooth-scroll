@@ -43,16 +43,6 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
         var _SmoothScroll = SmoothScroll;
 
         _createDecoratedClass(_SmoothScroll, [{
-          key: 'duration',
-          decorators: [bindable],
-          initializer: null,
-          enumerable: true
-        }, {
-          key: 'easing',
-          decorators: [bindable],
-          initializer: null,
-          enumerable: true
-        }, {
           key: 'attached',
           value: function attached() {
             var sub = this.onClick.bind(this);
@@ -69,8 +59,8 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
 
               try {
                 for (var _iterator = this.subs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                  var sub = _step.value;
-                  sub();
+                  var _sub = _step.value;
+                  _sub();
                 }
               } catch (err) {
                 _didIteratorError = true;
@@ -101,18 +91,24 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
             var options = arguments[1] === undefined ? {} : arguments[1];
             var container = arguments[2] === undefined ? document.body : arguments[2];
 
+            console.log('scrollTo', elementOrHash);
+
             var target = elementOrHash;
 
             if (typeof elementOrHash === 'string') {
               var hash = elementOrHash;
               if (hash.indexOf('#') === 0) hash = hash.slice(1, hash.length);
-              target = container.querySelector('[id="' + hash + '"');
-              if (!target) container.querySelector('[name="' + hash + '"');
+              target = container.querySelector('[id="' + hash + '"]');
+              if (!target) container.querySelector('[name="' + hash + '"]');
             }
 
-            var t = container.scrollTop;
-            history.pushState(null, null, '#' + hash);
-            container.scrollTop = t;
+            if (history) {
+              history.pushState(null, null, '#' + hash);
+            } else {
+              var t = container.scrollTop;
+              location.hash = hash;
+              container.scrollTop = t;
+            }
 
             return this.animator.animate(target, 'scroll', Object.assign({
               duration: this.duration,
@@ -120,7 +116,22 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
               easing: this.easing
             }, options));
           }
+        }, {
+          key: 'duration',
+          decorators: [bindable],
+          initializer: null,
+          enumerable: true
+        }, {
+          key: 'easing',
+          decorators: [bindable],
+          initializer: null,
+          enumerable: true
         }], [{
+          key: 'getOffset',
+          value: function getOffset() {
+            return -document.querySelector('.page-host').offsetTop;
+          }
+        }, {
           key: 'defaultConfig',
           value: {
             duration: 400,
@@ -131,11 +142,6 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
           key: 'inject',
           value: [Element, VelocityAnimator, Router],
           enumerable: true
-        }, {
-          key: 'getOffset',
-          value: function getOffset() {
-            return -document.querySelector('.page-host').offsetTop;
-          }
         }], _instanceInitializers);
 
         SmoothScroll = noView(SmoothScroll) || SmoothScroll;

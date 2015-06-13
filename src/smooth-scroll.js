@@ -53,18 +53,25 @@ export class SmoothScroll{
    */
   scrollTo(elementOrHash,options={},container=document.body){
 
+    console.log('scrollTo',elementOrHash);
+
     var target = elementOrHash;
     //find target by id or name
     if(typeof elementOrHash === "string"){
       var hash = elementOrHash;
       if(hash.indexOf("#")===0) hash = hash.slice(1,hash.length);
-      target = container.querySelector(`[id="${hash}"`);
-      if(!target) container.querySelector(`[name="${hash}"`);
+      target = container.querySelector(`[id="${hash}"]`);
+      if(!target) container.querySelector(`[name="${hash}"]`);
     }
 
-    var t = container.scrollTop;
-    history.pushState(null, null, '#'+hash);
-    container.scrollTop = t;
+    if(history){
+      history.pushState(null, null, '#'+hash);
+    }else{
+      //fallback to location.hash
+      var t = container.scrollTop;
+      location.hash = hash;
+      container.scrollTop = t;
+    }
 
     return this.animator.animate(target,"scroll",
       Object.assign({
