@@ -1,7 +1,7 @@
-System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-velocity'], function (_export) {
+System.register(['aurelia-framework', 'aurelia-router'], function (_export) {
   'use strict';
 
-  var bindable, noView, customAttribute, Router, VelocityAnimator, SmoothScroll;
+  var bindable, noView, customAttribute, Animator, Router, SmoothScroll;
 
   var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
 
@@ -14,10 +14,9 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
       bindable = _aureliaFramework.bindable;
       noView = _aureliaFramework.noView;
       customAttribute = _aureliaFramework.customAttribute;
+      Animator = _aureliaFramework.Animator;
     }, function (_aureliaRouter) {
       Router = _aureliaRouter.Router;
-    }, function (_gooyAureliaAnimatorVelocity) {
-      VelocityAnimator = _gooyAureliaAnimatorVelocity.VelocityAnimator;
     }],
     execute: function () {
       SmoothScroll = (function () {
@@ -91,8 +90,6 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
             var options = arguments[1] === undefined ? {} : arguments[1];
             var container = arguments[2] === undefined ? document.body : arguments[2];
 
-            console.log('scrollTo', elementOrHash);
-
             var target = elementOrHash;
 
             if (typeof elementOrHash === 'string') {
@@ -140,7 +137,7 @@ System.register(['aurelia-framework', 'aurelia-router', 'gooy/aurelia-animator-v
           enumerable: true
         }, {
           key: 'inject',
-          value: [Element, VelocityAnimator, Router],
+          value: [Element, Animator, Router],
           enumerable: true
         }], _instanceInitializers);
 

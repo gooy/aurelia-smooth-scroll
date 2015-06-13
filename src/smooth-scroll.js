@@ -51,7 +51,7 @@ export class SmoothScroll{
    * @returns {Promise} resolved when scrolling is done
    */
   scrollTo(elementOrHash,options={},container=document.body){
-    
+
     var target = elementOrHash;
     //find target by id or name
     if(typeof elementOrHash === "string"){
