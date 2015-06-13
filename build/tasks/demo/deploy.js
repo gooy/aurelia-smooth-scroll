@@ -43,7 +43,6 @@ function removeAll(patterns,options,done){
         }
         for(var i2 = 0, l2 = files.length; i2 < l2; i2++){
           var file = files[i2];
-          console.log(file);
           if(fs.existsSync(file)) {
             fs.unlinkSync(file);
           }

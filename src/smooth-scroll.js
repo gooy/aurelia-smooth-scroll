@@ -1,6 +1,5 @@
-import {bindable,noView,customAttribute} from 'aurelia-framework';
+import {bindable,noView,customAttribute,Animator} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {VelocityAnimator} from "gooy/aurelia-animator-velocity";
 
 @customAttribute("smooth-scroll")
 @noView
@@ -16,7 +15,7 @@ export class SmoothScroll{
     easing: "ease-in"
   };
 
-  static inject = [Element,VelocityAnimator,Router];
+  static inject = [Element,Animator,Router];
   constructor(element,animator,router) {
     this.element = element;
     this.animator = animator;
