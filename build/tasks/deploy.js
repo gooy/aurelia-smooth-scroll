@@ -9,6 +9,7 @@ var dirs = gulp.pkg.directories;
 gulp.task('deploy', function(done) {
   return runSequence(
     'demo-deploy',
+    'demo-deploy-filter',
     done
   );
 });
