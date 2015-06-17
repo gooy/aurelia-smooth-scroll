@@ -93,25 +93,25 @@ System.register(['aurelia-framework', 'aurelia-router'], function (_export) {
             var target = elementOrHash;
             var hash = null;
 
-            if (typeof elementOrHash === 'string') {
-              hash = elementOrHash;
-              if (hash.indexOf('#') === 0) hash = hash.slice(1, hash.length);
+            if (typeof elementOrHash === 'string' && elementOrHash.indexOf('#') === 0) {
+              hash = elementOrHash.slice(1, elementOrHash.length);
               if (hash) {
                 target = container.querySelector('[id="' + hash + '"]');
                 if (!target) container.querySelector('[name="' + hash + '"]');
               } else {
                 target = document.body;
               }
+
+              if (history) {
+                history.pushState(null, null, '#' + hash);
+              } else {
+                var t = container.scrollTop;
+                location.hash = hash;
+                container.scrollTop = t;
+              }
             }
 
-            if (history) {
-              history.pushState(null, null, '#' + hash);
-            } else {
-              var t = container.scrollTop;
-              location.hash = hash;
-              container.scrollTop = t;
-            }
-
+            if (!target || typeof target === 'string') return Promise.resolve();
             return this.animator.animate(target, 'scroll', Object.assign({
               duration: this.duration,
               offset: SmoothScroll.getOffset(),
