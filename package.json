@@ -1,6 +1,6 @@
 {
   "name": "aurelia-smooth-scroll",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A custom attribute that allows in-page links to smoothly scroll to their target",
   "keywords": [
     "aurelia",
@@ -27,7 +27,9 @@
     "jshint": "jshint src build test gulpfile.js"
   },
   "dependencies": {
-    "gulp-git": "^1.2.4"
+    "gulp-bump": "^0.3.1",
+    "gulp-git": "^1.2.4",
+    "yargs": "^3.15.0"
   },
   "devDependencies": {
     "gulp-live-server": "0.0.20",
@@ -90,15 +92,15 @@
   },
   "jspm": {
     "directories": {
-      "lib": "dist/system"
+      "lib": "dist/commonjs"
     },
     "dependencies": {},
     "devDependencies": {
-      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.13.0",
-      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.8.1",
-      "aurelia-framework": "github:aurelia/framework@^0.12.0",
-      "aurelia-http-client": "github:aurelia/http-client@^0.9.1",
-      "aurelia-router": "github:aurelia/router@^0.9.0",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.14.0",
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.9.0",
+      "aurelia-framework": "github:aurelia/framework@^0.13.1",
+      "aurelia-http-client": "github:aurelia/http-client@^0.10.0",
+      "aurelia-router": "github:aurelia/router@^0.10.0",
       "babel": "npm:babel-core@^5.1.13",
       "babel-runtime": "npm:babel-runtime@^5.1.13",
       "bootstrap": "github:twbs/bootstrap@^3.3.4",
