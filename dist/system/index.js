@@ -6,9 +6,9 @@ System.register(["./smooth-scroll"], function (_export) {
   _export("configure", configure);
 
   function configure(aurelia, cb) {
-    aurelia.globalizeResources("./smooth-scroll");
+    aurelia.globalResources("./smooth-scroll");
     var config = SmoothScroll.defaultConfig;
-    if (cb !== undefined && typeof cb === "function") cb(config);
+    if (cb !== undefined && typeof cb === 'function') cb(config);
   }
 
   return {

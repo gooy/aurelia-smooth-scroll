@@ -1,6 +1,6 @@
 {
   "name": "aurelia-smooth-scroll",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A custom attribute that allows in-page links to smoothly scroll to their target",
   "keywords": [
     "aurelia",
