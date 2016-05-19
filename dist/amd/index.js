@@ -13,9 +13,9 @@ define(["exports", "./smooth-scroll"], function (exports, _smoothScroll) {
   });
 
   function configure(aurelia, cb) {
-    aurelia.globalizeResources("./smooth-scroll");
+    aurelia.globalResources("./smooth-scroll");
     var config = _smoothScroll.SmoothScroll.defaultConfig;
-    if (cb !== undefined && typeof cb === "function") cb(config);
+    if (cb !== undefined && typeof cb === 'function') cb(config);
   }
 });
 //# sourceMappingURL=index.js.map

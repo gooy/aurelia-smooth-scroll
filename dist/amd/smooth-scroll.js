@@ -9,10 +9,34 @@ define(['exports', 'aurelia-framework', 'aurelia-router'], function (exports, _a
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer.call(target); Object.defineProperty(target, key, descriptor); }
+  function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
 
   var SmoothScroll = (function () {
     var _instanceInitializers = {};
+    var _instanceInitializers = {};
+
+    _createDecoratedClass(SmoothScroll, [{
+      key: 'duration',
+      decorators: [_aureliaFramework.bindable],
+      initializer: null,
+      enumerable: true
+    }, {
+      key: 'easing',
+      decorators: [_aureliaFramework.bindable],
+      initializer: null,
+      enumerable: true
+    }], [{
+      key: 'defaultConfig',
+      value: {
+        duration: 400,
+        easing: "ease-in"
+      },
+      enumerable: true
+    }, {
+      key: 'inject',
+      value: [Element, _aureliaFramework.Animator, _aureliaRouter.Router],
+      enumerable: true
+    }], _instanceInitializers);
 
     function SmoothScroll(element, animator, router) {
       _classCallCheck(this, _SmoothScroll);
@@ -31,14 +55,12 @@ define(['exports', 'aurelia-framework', 'aurelia-router'], function (exports, _a
       if (config.easing) this.easing = config.easing;
     }
 
-    var _SmoothScroll = SmoothScroll;
-
-    _createDecoratedClass(_SmoothScroll, [{
+    _createDecoratedClass(SmoothScroll, [{
       key: 'attached',
       value: function attached() {
         var sub = this.onClick.bind(this);
         this.subs.push();
-        this.element.addEventListener('click', sub);
+        this.element.addEventListener("click", sub);
       }
     }, {
       key: 'detached',
@@ -50,8 +72,8 @@ define(['exports', 'aurelia-framework', 'aurelia-router'], function (exports, _a
 
           try {
             for (var _iterator = this.subs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-              var _sub = _step.value;
-              _sub();
+              var sub = _step.value;
+              sub();
             }
           } catch (err) {
             _didIteratorError = true;
@@ -73,19 +95,19 @@ define(['exports', 'aurelia-framework', 'aurelia-router'], function (exports, _a
       key: 'onClick',
       value: function onClick(event) {
         event.preventDefault();
-        this.scrollTo(this.element.getAttribute('href'), {}, document.body);
+        this.scrollTo(this.element.getAttribute("href"), {}, document.body);
         return false;
       }
     }, {
       key: 'scrollTo',
       value: function scrollTo(elementOrHash) {
-        var options = arguments[1] === undefined ? {} : arguments[1];
-        var container = arguments[2] === undefined ? document.body : arguments[2];
+        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+        var container = arguments.length <= 2 || arguments[2] === undefined ? document.body : arguments[2];
 
         var target = elementOrHash;
         var hash = null;
 
-        if (typeof elementOrHash === 'string' && elementOrHash.indexOf('#') === 0) {
+        if (typeof elementOrHash === "string" && elementOrHash.indexOf("#") === 0) {
           hash = elementOrHash.slice(1, elementOrHash.length);
           if (hash) {
             target = container.querySelector('[id="' + hash + '"]');
@@ -103,43 +125,23 @@ define(['exports', 'aurelia-framework', 'aurelia-router'], function (exports, _a
           }
         }
 
-        if (!target || typeof target === 'string') return Promise.resolve();
-        return this.animator.animate(target, 'scroll', Object.assign({
+        if (!target || typeof target === "string") return Promise.resolve();
+        return this.animator.animate(target, "scroll", Object.assign({
           duration: this.duration,
           offset: SmoothScroll.getOffset(),
           easing: this.easing
         }, options));
       }
-    }, {
-      key: 'duration',
-      decorators: [_aureliaFramework.bindable],
-      initializer: null,
-      enumerable: true
-    }, {
-      key: 'easing',
-      decorators: [_aureliaFramework.bindable],
-      initializer: null,
-      enumerable: true
     }], [{
       key: 'getOffset',
       value: function getOffset() {
-        return -document.querySelector('.page-host').offsetTop;
+        return -document.querySelector(".page-host").offsetTop;
       }
-    }, {
-      key: 'defaultConfig',
-      value: {
-        duration: 400,
-        easing: 'ease-in'
-      },
-      enumerable: true
-    }, {
-      key: 'inject',
-      value: [Element, _aureliaFramework.Animator, _aureliaRouter.Router],
-      enumerable: true
     }], _instanceInitializers);
 
+    var _SmoothScroll = SmoothScroll;
     SmoothScroll = (0, _aureliaFramework.noView)(SmoothScroll) || SmoothScroll;
-    SmoothScroll = (0, _aureliaFramework.customAttribute)('smooth-scroll')(SmoothScroll) || SmoothScroll;
+    SmoothScroll = (0, _aureliaFramework.customAttribute)("smooth-scroll")(SmoothScroll) || SmoothScroll;
     return SmoothScroll;
   })();
 
