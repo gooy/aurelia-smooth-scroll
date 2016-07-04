@@ -5,7 +5,7 @@ This is a custom attribute that can be added to in-page links to make the browse
 To use it install it into your project.
 
 ```javascript
-jspm install gooy/aurelia-smooth-scroll
+jspm install aurelia-smooth-scroll=github:gooy/aurelia-smooth-scroll
 ```
 
 And register it as a plugin with aurelia.
